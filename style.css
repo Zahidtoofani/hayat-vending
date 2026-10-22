@@ -1,0 +1,528 @@
+/* --- Global Variables & Reset --- */
+:root {
+    --primary-brown: #7F4C21;
+    --primary-green: #70B94D;
+    --white: #FFFFFF;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --dark-bg: #1a1a1a;
+    --text-dark: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--white);
+}
+p {
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* --- Glassmorphism Classes --- */
+.glass-nav {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* --- Navigation --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo-frame {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-green);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.company-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+.nav-links li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 400;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.nav-links li a:hover, .nav-links li a.active {
+    color: var(--primary-green);
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+.btn-primary {
+    background-color: var(--primary-brown);
+    color: var(--white);
+}
+.btn-primary:hover {
+    background-color: #633b18;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+.btn-secondary:hover {
+    background-color: #5a9a3d;
+    transform: translateY(-2px);
+}
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--dark-bg);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    overflow: hidden;
+}
+.angled-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+    opacity: 0.4;
+    transform: rotate(25deg) scale(1.2);
+}
+.angled-img {
+    width: 30%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 50px;
+    max-width: 800px;
+    background: rgba(26, 26, 26, 0.6); /* Darker glass for readability */
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-green);
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- About Section --- */
+.about-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, var(--dark-bg), #222);
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+.about-text h2 {
+    text-align: left;
+}
+.highlight-text {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.about-text p {
+    margin-bottom: 20px;
+}
+.about-slider {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.about-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.about-slider .slide.active {
+    opacity: 1;
+}
+
+/* KPI Section */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+.kpi-item {
+    text-align: center;
+}
+.kpi-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    margin-bottom: 5px;
+}
+.kpi-item p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    padding: 100px 0;
+}
+.testimonial-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.nav-btn {
+    background: var(--primary-brown);
+    color: var(--white);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+}
+.nav-btn:hover {
+    background: var(--primary-green);
+}
+.testimonial-track-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+}
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.testimonial-card {
+    min-width: 33.333%;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    border-radius: 20px;
+}
+.testimonial-card.active {
+    opacity: 1;
+    transform: scale(1.1);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border: 3px solid var(--primary-green);
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.testimonial-card h4 {
+    margin-bottom: 10px;
+}
+.stars {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+.testimonial-card p {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+.add-review-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* --- Products Section --- */
+.products-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #222, var(--dark-bg));
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.product-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+}
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--glass-border);
+}
+.product-info {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-info h3 {
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+.product-info p {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* --- Contact/Footer Section --- */
+.contact-section {
+    padding: 80px 0 20px;
+    background: #111;
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+.contact-info h2 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.info-item i {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    width: 25px;
+    text-align: center;
+}
+.social-links {
+    margin: 30px 0;
+}
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: var(--primary-green);
+}
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+.contact-form {
+    padding: 30px;
+}
+.contact-form h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--white);
+    font-family: inherit;
+    outline: none;
+    transition: border 0.3s;
+}
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary-green);
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .testimonial-card {
+        min-width: 50%; /* Show 2 cards on tablet */
+    }
+    .testimonial-card.active {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Add JS toggle for mobile menu if needed */
+    }
+    .hamburger {
+        display: block;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .angled-bg-container {
+        flex-direction: column;
+        transform: rotate(25deg) scale(1.5);
+    }
+    .angled-img {
+        width: 80%;
+        height: 30vh;
+    }
+    .testimonial-card {
+        min-width: 100%; /* Show 1 card on mobile */
+    }
+    .testimonial-card.active {
+        transform: scale(1);
+    }
+    .testimonial-track-container {
+        overflow: hidden;
+    }
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
