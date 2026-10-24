@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Hayat Vending</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation (Same as Home) -->
+    <nav class="glass-nav">
+        <div class="logo-container">
+            <div class="logo-frame">
+                <img src="assets/hayat_logo.png" alt="Hayat Logo">
+            </div>
+            <span class="company-name">HAYAT VENDING</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html#about">ABOUT</a></li>
+            <li><a href="products.html" class="active">PRODUCTS</a></li>
+            <li><a href="index.html#tutorials">TUTORIALS</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="products-page-section">
+        <div class="container">
+            <h2>Our Premium Machines</h2>
+            <p class="section-subtitle">Top-quality European vending solutions for your workplace.</p>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_1.jpg" alt="Coffee Machine">
+                    <div class="product-info">
+                        <h3>European Coffee Vending</h3>
+                        <span class="model-tag">Model: HV-C100</span>
+                        <p>Top-tier hot beverage dispensers for premium office coffee.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="European Coffee Vending (HV-C100)">GET A QUOTE</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_2.jpg" alt="Snack Vending">
+                    <div class="product-info">
+                        <h3>Snack & Food Vending</h3>
+                        <span class="model-tag">Model: HV-S200</span>
+                        <p>Keep your team fueled with a wide variety of fresh snacks and treats.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="Snack & Food Vending (HV-S200)">GET A QUOTE</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_3.jpg" alt="Combo Machine">
+                    <div class="product-info">
+                        <h3>Combo Vending Solutions</h3>
+                        <span class="model-tag">Model: HV-CB300</span>
+                        <p>All-in-one machines offering hot drinks, cold beverages, and snacks.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="Combo Vending Solutions (HV-CB300)">GET A QUOTE</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_4.jpg" alt="Cold Drinks Machine">
+                    <div class="product-info">
+                        <h3>Cold Drinks Dispenser</h3>
+                        <span class="model-tag">Model: HV-CD400</span>
+                        <p>Chilled beverages to refresh your staff during long work hours.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="Cold Drinks Dispenser (HV-CD400)">GET A QUOTE</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_5.jpg" alt="Bean to Cup Machine">
+                    <div class="product-info">
+                        <h3>Bean to Cup Coffee</h3>
+                        <span class="model-tag">Model: HV-BC500</span>
+                        <p>Barista-style freshly ground coffee at the touch of a button.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="Bean to Cup Coffee (HV-BC500)">GET A QUOTE</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card glass-panel">
+                    <img src="assets/slide_6.jpg" alt="Tabletop Vending">
+                    <div class="product-info">
+                        <h3>Compact Tabletop Vending</h3>
+                        <span class="model-tag">Model: HV-T600</span>
+                        <p>Space-saving solution perfect for small offices and pantries.</p>
+                        <button class="btn btn-secondary get-quote-btn" data-product="Compact Tabletop Vending (HV-T600)">GET A QUOTE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Modal (Hidden by default) -->
+    <div id="quoteModal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h3>Get a Quote</h3>
+            <p id="modalProductName" class="modal-product-name">Product Name</p>
+            
+            <form id="quoteForm">
+                <!-- Hidden input to store which product they clicked -->
+                <input type="hidden" id="selectedProduct" name="product">
+                
+                <div class="input-group">
+                    <label>Business Name <span class="required">*</span></label>
+                    <input type="text" id="businessName" name="business_name" placeholder="Your Company Name" required>
+                </div>
+                <div class="input-group">
+                    <label>Phone Number (Optional)</label>
+                    <input type="tel" id="phoneNumber" name="phone" placeholder="+971 50 000 0000">
+                </div>
+                <div class="input-group">
+                    <label>Message <span class="required">*</span></label>
+                    <textarea id="quoteMessage" name="message" rows="4" placeholder="Tell us about your requirements..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="submitQuoteBtn">SEND REQUEST</button>
+                <p id="formStatus" class="form-status"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (Same as Home) -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Us</h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Ajman, United Arab Emirates</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+971 50 000 0000</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>+971 50 000 0000</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@hayatvending.ae</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115478.2648041276!2d55.440588599999995!3d25.404383999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5ebfd49b5cb95d%3A0xc39b6f1b5b2e7e0!2sAjman%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form glass-panel">
+                    <h3>Send us a Message</h3>
+                    <form id="messageForm">
+                        <div class="input-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hayat Vending. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to specific Products JS -->
+    <script src="products.js"></script>
+</body>
+</html>
