@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // EMAILJS CONFIGURATION (PASTE YOUR KEYS HERE)
     // ==========================================
-    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; 
-    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // You can use one template for all if variables match
-    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID = "service_ab6vspe";
+    const EMAILJS_TEMPLATE_ID = "template_n3fqsi1";
+    const EMAILJS_PUBLIC_KEY = "8og170yJc3gM8rApv";
     
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
