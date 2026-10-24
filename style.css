@@ -639,3 +639,81 @@ p {
     width: 100%;
     margin-top: 10px;
 }
+
+
+
+/* --- Hero Transparency Fix --- */
+.hero-content {
+    /* Increased transparency so background images are more visible */
+    background: rgba(26, 26, 26, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- About Slider Height Increase --- */
+.about-slider {
+    height: 550px; /* Increased from 400px */
+}
+
+/* --- Drop Zone (File Upload) --- */
+.drop-zone {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+}
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--primary-green);
+    background: rgba(112, 185, 77, 0.1);
+}
+.drop-zone i {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+.drop-zone p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+.image-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px auto 0;
+    border: 2px solid var(--primary-green);
+}
+
+/* --- Star Rating Input --- */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    font-size: 1.5rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #FFD700;
+}
+
+/* --- Dynamic Review Cards --- */
+.testimonial-card .profile-pic img.default-avatar {
+    object-fit: contain;
+    padding: 15px;
+    background: #333;
+}
+
+
+
